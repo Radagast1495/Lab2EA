@@ -15,16 +15,10 @@ class Animal {
 		int Sexo;
 		int XCoord;
 		int YCoord;
-		bool CasillasValidas[8]= { false,false, false, false, false, false, false, false };
-		string EspeciesVecinas[8];
-		enum Especies {
-			Lobo, Oveja, Zorro, Raton
-		};
+    int RandX;
+    int RandY;
+    bool CanMove;
 
-		void Mover();
-		void Comer();
-		void Reproducir();
-		void Morir();
-		void RevisarVecindad(Celda(&Matriz)[3][3], int PosX, int PosY);
-		void ClasificarVecindad(Celda(&Matriz)[3][3], int PosX, int PosY);
+		
+
 };

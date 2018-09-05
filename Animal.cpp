@@ -12,51 +12,15 @@ Animal::Animal(int nEnergia, int nID, int nEspecie, int nSexo, int X, int Y) {
 	this->Sexo = nSexo;
 	this->XCoord = X;
 	this->YCoord = Y;
+	this->RandX=0;
+	this->RandY=0;
+	this->CanMove=true;
 }
 
 
 
 
 
-void Animal::Mover() {
-
-	switch (this->Especie)
-	{
-	case 0:
-
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	}
-
-}
-
-void Animal::Comer() {
-
-	switch (this->Especie)
-	{
-	case 0:
-
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	}
-
-}
-
-void Animal::Reproducir() {
-
-}
-
-void Animal::Morir() {
-
-}
 
 int main() {
 	return 0;
