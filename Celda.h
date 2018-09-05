@@ -14,6 +14,8 @@ public:
 	Animales CampoAnimal;
 	int EnergiaPasto;
 	bool CampoOcupado;
+	bool CasillasValidas [8];
+	bool Vecinos [8];
 
 
 };

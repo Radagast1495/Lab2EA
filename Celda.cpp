@@ -10,10 +10,13 @@ Celda::~Celda() {
 Celda::Celda() {
 	this->CampoOcupado = false;
 	this->EnergiaPasto = MAXPASTO;
+	for (int i = 0; i < 8; i++)
+	{
+		this->CasillasValidas[i] = false;
+	}
 }
 
 Celda::Celda(Animales An) {
 	this->CampoAnimal = An;
 	this->CampoOcupado = true;
-	this->EnergiaPasto=MAXPASTO;
 }

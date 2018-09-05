@@ -17,35 +17,34 @@ Ecosistema::~Ecosistema() {
 }
 
 void Ecosistema::RevisarVecindad(int PX, int PY) {
-	bool CasillasValidas[8] = { false,false,false,false,false,false,false,false };
 
 	if (&this->Campo[PY - 1][PX - 1] != NULL && this->Campo[PY - 1][PX - 1].CampoOcupado== false) {
-		CasillasValidas[0] = true;
+		this->Campo[PX][PY].CasillasValidas[0] = true;
 	}
 	else if (&this->Campo[PY - 1][PX] != NULL && this->Campo[PY - 1][PX].CampoOcupado == false) {
-		CasillasValidas[1] = true;
+		this->Campo[PX][PY].CasillasValidas[1] = true;
 	}
 	else if (&this->Campo[PY - 1][PX + 1] != NULL && this->Campo[PY - 1][PX + 1].CampoOcupado == false) {
-		CasillasValidas[2] = true;
+		this->Campo[PX][PY].CasillasValidas[2] = true;
 	}
 	else if (&this->Campo[PY][PX - 1] != NULL && this->Campo[PY][PX - 1].CampoOcupado == false) {
-		CasillasValidas[3] = true;
+		this->Campo[PX][PY].CasillasValidas[3] = true;
 	}
 	else if (&this->Campo[PY][PX + 1] != NULL && this->Campo[PY][PX + 1].CampoOcupado == false) {
-		CasillasValidas[4] = true;
+		this->Campo[PX][PY].CasillasValidas[4] = true;
 	}
 	else if (&this->Campo[PX - 1][PY + 1] != NULL && this->Campo[PX - 1][PY + 1].CampoOcupado == false) {
-		CasillasValidas[5] = true;
+		this->Campo[PX][PY].CasillasValidas[5] = true;
 	}
 	else if (&this->Campo[PX][PY + 1] != NULL && this->Campo[PX][PY + 1].CampoOcupado == false) {
-		CasillasValidas[6] = true;
+		this->Campo[PX][PY].CasillasValidas[6] = true;
 	}
 	else if (&this->Campo[PX + 1][PY + 1] != NULL && this->Campo[PX + 1][PY + 1].CampoOcupado == false) {
-		CasillasValidas[7] = true;
+		this->Campo[PX][PY].CasillasValidas[7] = true;
 	}
 	int j = 0;
 	for (int i = 0; i<7;i++) {
-		if (CasillasValidas[i] == true) {
+		if (this->Campo[PX][PY].CasillasValidas[i] == true) {
 			j++;
 		}
 	}
@@ -56,7 +55,7 @@ void Ecosistema::RevisarVecindad(int PX, int PY) {
 	int RandVal[8];
 
 	for (int i = 0; i<j;i++) {
-		if (CasillasValidas[i] == true) {
+		if (this->Campo[PX][PY].CasillasValidas[i] == true) {
 			RandVal[i] = i;
 		}
 		else {
@@ -81,27 +80,59 @@ void Ecosistema::RevisarVecindad(int PX, int PY) {
 	case 0:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX - 1;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY - 1;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 1:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY - 1;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 2:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX + 1;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY - 1;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 3:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX - 1;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 4:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX + 1;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 5:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX - 1;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY + 11;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 6:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY + 1;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	case 7:
 		this->Campo[PX][PY].CampoAnimal.RandX = PX + 1;
 		this->Campo[PX][PY].CampoAnimal.RandY = PY + 1;
+		for (int i = 0; i < 8; i++)
+		{
+			this->Campo[PX][PY].CasillasValidas[i] = false;
+		}
 	}
 
 
@@ -143,11 +174,9 @@ void Ecosistema::Mover(int PX, int PY) {
 	{
 
 	case 0:
-		MX = PX;
-		MY = PY;
 		for (int i = 3; i>0; i--) {
 			RevisarVecindad(MX, MY);
-			if (Campo[PX][PY].CampoAnimal.CanMove == false) {
+			if (Campo[MX][MY].CampoAnimal.CanMove == false) {
 				break;
 			}
 			else {
@@ -161,8 +190,6 @@ void Ecosistema::Mover(int PX, int PY) {
 		break;
 
 	case 1:
-		MX = PX;
-		MY = PY;
 		for (int i = 2; i>0; i--) {
 			RevisarVecindad(MX, MY);
 			if (Campo[PX][PY].CampoAnimal.CanMove == false) {
@@ -178,9 +205,7 @@ void Ecosistema::Mover(int PX, int PY) {
 		Campo[MX][MY].CampoAnimal.CanMove = true;
 		break;
 	case 2:
-		MX = PX;
-		MY = PY;
-		for (int i = 3; i>0; i--) {
+		for (int i = 2; i>0; i--) {
 			RevisarVecindad(MX, MY);
 			if (Campo[PX][PY].CampoAnimal.CanMove == false) {
 				break;
@@ -195,9 +220,7 @@ void Ecosistema::Mover(int PX, int PY) {
 		Campo[MX][MY].CampoAnimal.CanMove = true;
 		break;
 	case 3:
-		MX = PX;
-		MY = PY;
-		for (int i = 3; i>0; i--) {
+		for (int i = 1; i>0; i--) {
 			RevisarVecindad(MX, MY);
 			if (Campo[PX][PY].CampoAnimal.CanMove == false) {
 				break;
