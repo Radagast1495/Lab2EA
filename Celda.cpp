@@ -15,4 +15,5 @@ Celda::Celda() {
 Celda::Celda(Animales An) {
 	this->CampoAnimal = An;
 	this->CampoOcupado = true;
+	this->EnergiaPasto=MAXPASTO;
 }
